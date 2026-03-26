@@ -4,7 +4,12 @@ import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { NavLink, useNavigate } from 'react-router-dom'
-import { ADMIN_ROUTE, LOGIN_ROUTE, SHOP_ROUTE } from '../utils/consts'
+import {
+	ADMIN_ROUTE,
+	BASKET_ROUTE,
+	LOGIN_ROUTE,
+	SHOP_ROUTE,
+} from '../utils/consts'
 import Button from 'react-bootstrap/Button'
 import { observer } from 'mobx-react-lite'
 
@@ -18,7 +23,21 @@ const NavBar = observer(() => {
 	return (
 		<Navbar bg='dark' data-bs-theme='dark'>
 			<Container>
-				<NavLink style={{ color: 'white' }} to={SHOP_ROUTE}>
+				<NavLink
+					style={{
+						color: '#ffa500',
+						fontWeight: 'bold',
+						textDecoration: 'none',
+					}}
+					to={SHOP_ROUTE}
+					className='d-flex flex-column align-items-center'
+				>
+					<img
+						src='../assets/MadeInAbyss_logo.svg.png'
+						width={50}
+						height={50}
+						alt=''
+					/>
 					Аниме Магазин
 				</NavLink>
 				{user.isAuth ? (
@@ -26,20 +45,30 @@ const NavBar = observer(() => {
 						<Button
 							variant='outline-light'
 							onClick={() => {
-								console.log(user)
 								navigate(ADMIN_ROUTE)
 							}}
+							className='align-self-center'
 						>
 							Админ Панель
 						</Button>
+
 						<Button
 							variant='outline-light'
 							onClick={() => {
 								logout()
 							}}
-							className='ms-2'
+							className='ms-4 align-self-center'
 						>
 							Выйти
+						</Button>
+						<Button
+							onClick={() => {
+								navigate(BASKET_ROUTE)
+							}}
+							className='ms-4 bg-transparent border-0 justify-self-end d-flex flex-column align-items-center justify-content-center flex-wrap'
+						>
+							<img src='../assets/basket.webp' alt='' width={50} height={50} />
+							Корзина
 						</Button>
 					</Nav>
 				) : (

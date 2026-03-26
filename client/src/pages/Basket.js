@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Basket = () => {
-	return <div>Basket</div>
+	return <h1>Basket</h1>
 }
 
 export default Basket

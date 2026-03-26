@@ -1,6 +1,6 @@
 const uuid = require('uuid')
 const path = require('path')
-const { Device, DeviceInfo } = require('../models/models')
+const { Device, DeviceInfo, BasketDevice, Basket } = require('../models/models')
 const ApiError = require('../error/ApiError')
 
 class DeviceController {
@@ -34,6 +34,17 @@ class DeviceController {
 		} catch (e) {
 			next(ApiError.badRequest(e.message))
 		}
+	}
+	async createBasketDevice(req, res, next) {
+		let { deviceId, userId } = req.body
+		let basket = await Basket.findOne({
+			where: { userId: userId },
+		})
+		const basketDevice = await BasketDevice.create({
+			deviceId: deviceId,
+			basketId: basket.id,
+		})
+		return res.json(basketDevice)
 	}
 	async getAll(req, res) {
 		let { brandId, typeId, limit, page } = req.query
