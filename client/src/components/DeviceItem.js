@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Col from 'react-bootstrap/esm/Col'
 import Card from 'react-bootstrap/Card'
 import Image from 'react-bootstrap/Image'
 import { useNavigate } from 'react-router-dom'
 import { DEVICE_ROUTE } from '../utils/consts'
+import Button from 'react-bootstrap/Button'
+import { Context } from '..'
+import { createBasketDevice } from '../http/deviceAPI'
 
 const DeviceItem = ({ device }) => {
 	const navigate = useNavigate()
+	const { user } = useContext(Context)
+	const addToCart = () => {
+		createBasketDevice({ userId: user.user.id, deviceId: device.id })
+	}
 	return (
 		<Col
 			md={3}
@@ -25,6 +32,17 @@ const DeviceItem = ({ device }) => {
 						<div>{device.rating}☆</div>
 					</div>
 				</div>
+				<Button
+					variant='warning'
+					style={{ fontSize: '13px', fontWeight: '500' }}
+					onClick={e => {
+						e.stopPropagation()
+
+						addToCart()
+					}}
+				>
+					Добавить В Корзину
+				</Button>
 			</Card>
 		</Col>
 	)
