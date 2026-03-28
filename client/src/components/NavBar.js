@@ -14,7 +14,7 @@ import Button from 'react-bootstrap/Button'
 import { observer } from 'mobx-react-lite'
 
 const NavBar = observer(() => {
-	const { user } = useContext(Context)
+	const { user, device } = useContext(Context)
 	const navigate = useNavigate()
 	const logout = () => {
 		user.setUser({})
@@ -68,7 +68,7 @@ const NavBar = observer(() => {
 							className='ms-4 bg-transparent border-0 justify-self-end d-flex flex-column align-items-center justify-content-center flex-wrap'
 						>
 							<img src='../assets/basket.webp' alt='' width={50} height={50} />
-							Корзина
+							Корзина {device.basketCount}
 						</Button>
 					</Nav>
 				) : (

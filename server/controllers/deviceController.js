@@ -78,6 +78,17 @@ class DeviceController {
 		}
 		return res.json(devices)
 	}
+	async getBasketDevices(req, res) {
+		const userId = req.user.id
+		let basket = await Basket.findOne({
+			where: { userId },
+		})
+		let basketDevices = await BasketDevice.findAndCountAll({
+			where: { basketId: basket.id },
+			include: [{ model: Device }],
+		})
+		return res.json(basketDevices)
+	}
 	async getOne(req, res) {
 		const { id } = req.params
 		const device = await Device.findOne({

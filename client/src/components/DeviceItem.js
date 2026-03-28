@@ -35,7 +35,11 @@ const DeviceItem = ({ device }) => {
 				<Button
 					variant='warning'
 					style={{ fontSize: '13px', fontWeight: '500' }}
-					onClick={() => addToCart()}
+					onClick={e => {
+						e.stopPropagation()
+
+						addToCart()
+					}}
 				>
 					Добавить В Корзину
 				</Button>

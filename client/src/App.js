@@ -7,10 +7,12 @@ import { Context } from '.'
 import { check } from './http/userAPI'
 import Spinner from 'react-bootstrap/Spinner'
 import { fetchBrands, fetchDevices, fetchTypes } from './http/deviceAPI'
+import { getBasketDevices } from './http/deviceAPI'
 
 const App = observer(() => {
 	const { user, device } = useContext(Context)
 	const [loading, setLoading] = useState(true)
+
 	useEffect(() => {
 		fetchTypes().then(data => device.setTypes(data))
 		fetchBrands().then(data => device.setBrands(data))
@@ -39,6 +41,13 @@ const App = observer(() => {
 				.finally(() => setLoading(false))
 		}, 1000)
 	}, [])
+	useEffect(() => {
+		if (user.isAuth) {
+			getBasketDevices().then(data => {
+				device.setBasketCount(data.count)
+			})
+		}
+	}, [user.isAuth])
 
 	if (loading) {
 		return <Spinner animation='grow'></Spinner>

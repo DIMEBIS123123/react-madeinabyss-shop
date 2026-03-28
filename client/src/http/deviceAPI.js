@@ -42,6 +42,14 @@ export const createBasketDevice = async device => {
 		console.log(e.response.data.message)
 	}
 }
+export const getBasketDevices = async () => {
+	try {
+		const { data } = await $authHost.get('api/device/getBasketDevices')
+		return data
+	} catch (e) {
+		console.log(e.response.data.message)
+	}
+}
 export const fetchDevices = async (typeId, brandId, page, limit) => {
 	const { data } = await $host.get('api/device', {
 		params: {
