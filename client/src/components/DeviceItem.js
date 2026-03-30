@@ -6,30 +6,34 @@ import { useNavigate } from 'react-router-dom'
 import { DEVICE_ROUTE } from '../utils/consts'
 import Button from 'react-bootstrap/Button'
 import { Context } from '..'
-import { createBasketDevice } from '../http/deviceAPI'
+import { createBasketDevice, getBasketDevices } from '../http/deviceAPI'
 
-const DeviceItem = ({ device }) => {
+const DeviceItem = ({ deviceItem }) => {
 	const navigate = useNavigate()
-	const { user } = useContext(Context)
+	const { user, device } = useContext(Context)
 	const addToCart = () => {
-		createBasketDevice({ userId: user.user.id, deviceId: device.id })
+		createBasketDevice({ userId: user.user.id, deviceId: deviceItem.id })
+		getBasketDevices().then(data => {
+			device.setBasketCount(data.count)
+			device.setBasketDevices(data.rows)
+		})
 	}
 	return (
 		<Col
 			md={3}
 			className='mt-3'
-			onClick={() => navigate(DEVICE_ROUTE + '/' + device.id)}
+			onClick={() => navigate(DEVICE_ROUTE + '/' + deviceItem.id)}
 		>
 			<Card style={{ width: 150, cursor: 'pointer' }} border='light'>
 				<Image
 					width={150}
 					height={150}
-					src={process.env.REACT_APP_API_URL + device.img}
+					src={process.env.REACT_APP_API_URL + deviceItem.img}
 				/>
 				<div className='d-flex justify-content-between align-items-center'>
-					<div>{device.name}</div>
+					<div>{deviceItem.name}</div>
 					<div>
-						<div>{device.rating}☆</div>
+						<div>{deviceItem.rating}☆</div>
 					</div>
 				</div>
 				<Button

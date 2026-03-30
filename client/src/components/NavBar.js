@@ -63,7 +63,7 @@ const NavBar = observer(() => {
 						</Button>
 						<Button
 							onClick={() => {
-								navigate(BASKET_ROUTE)
+								device.setBasketWindow(true)
 							}}
 							className='ms-4 bg-transparent border-0 justify-self-end d-flex flex-column align-items-center justify-content-center flex-wrap'
 						>

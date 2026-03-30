@@ -8,6 +8,18 @@ const BrandBar = observer(() => {
 	const { device } = useContext(Context)
 	return (
 		<Row className='d-flex justify-content-center align-items-center'>
+			<Card
+				style={{
+					width: 'auto',
+					cursor: 'pointer',
+					backgroundColor: device.selectedBrand.id ? 'white' : '#0d6efd',
+					color: device.selectedBrand.id ? 'black' : 'white',
+				}}
+				className='p-3 m-2'
+				onClick={() => device.setSelectedBrand({})}
+			>
+				Все Брэнды
+			</Card>
 			{device.brands.map(brand => (
 				<Card
 					style={{

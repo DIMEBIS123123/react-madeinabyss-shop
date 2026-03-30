@@ -11,6 +11,8 @@ export default class DeviceStore {
 		this._totalCount = 0
 		this._limit = 3
 		this._basketCount = 0
+		this._basketDevices = []
+		this._basketWindow = false
 		makeAutoObservable(this)
 	}
 	setTypes(types) {
@@ -24,9 +26,11 @@ export default class DeviceStore {
 	}
 	setSelectedType(type) {
 		this._selectedType = type
+		this._page = 1
 	}
 	setSelectedBrand(brand) {
 		this._selectedBrand = brand
+		this._page = 1
 	}
 	setPage(page) {
 		this._page = page
@@ -36,6 +40,12 @@ export default class DeviceStore {
 	}
 	setBasketCount(count) {
 		this._basketCount = count
+	}
+	setBasketDevices(devices) {
+		this._basketDevices = devices
+	}
+	setBasketWindow(boolean) {
+		this._basketWindow = boolean
 	}
 	get types() {
 		return this._types
@@ -63,5 +73,11 @@ export default class DeviceStore {
 	}
 	get basketCount() {
 		return this._basketCount
+	}
+	get basketDevices() {
+		return this._basketDevices
+	}
+	get basketWindow() {
+		return this._basketWindow
 	}
 }
