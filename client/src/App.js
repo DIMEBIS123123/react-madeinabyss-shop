@@ -9,6 +9,7 @@ import Spinner from 'react-bootstrap/Spinner'
 import { fetchBrands, fetchDevices, fetchTypes } from './http/deviceAPI'
 import { getBasketDevices } from './http/deviceAPI'
 import BasketWindow from './components/modals/BasketWindow'
+import './css/style.scss'
 
 const App = observer(() => {
 	const { user, device } = useContext(Context)
@@ -46,6 +47,7 @@ const App = observer(() => {
 		if (user.isAuth) {
 			getBasketDevices().then(data => {
 				device.setBasketCount(data.count)
+				device.setBasketDevices(data.rows)
 			})
 		}
 	}, [user.isAuth])

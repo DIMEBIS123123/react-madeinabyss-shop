@@ -12,6 +12,8 @@ import {
 } from '../utils/consts'
 import Button from 'react-bootstrap/Button'
 import { observer } from 'mobx-react-lite'
+import Image from 'react-bootstrap/esm/Image'
+import border from '../assets/bar.png'
 
 const NavBar = observer(() => {
 	const { user, device } = useContext(Context)
@@ -21,16 +23,12 @@ const NavBar = observer(() => {
 		user.setIsAuth(false)
 	}
 	return (
-		<Navbar bg='dark' data-bs-theme='dark'>
+		<Navbar className='navbar' data-bs-theme='dark'>
+			<Image className='border-image top' src={border}></Image>
 			<Container>
 				<NavLink
-					style={{
-						color: '#ffa500',
-						fontWeight: 'bold',
-						textDecoration: 'none',
-					}}
 					to={SHOP_ROUTE}
-					className='d-flex flex-column align-items-center'
+					className='nav-link d-flex flex-column align-items-center text-lg-center'
 				>
 					<img
 						src='../assets/MadeInAbyss_logo.svg.png'
@@ -38,16 +36,16 @@ const NavBar = observer(() => {
 						height={50}
 						alt=''
 					/>
-					Аниме Магазин
+					Made in Abyss <br /> Shop
 				</NavLink>
 				{user.isAuth ? (
 					<Nav className='ml-auto' style={{ color: 'white' }}>
 						<Button
-							variant='outline-light'
+							variant='outline-dark'
 							onClick={() => {
 								navigate(ADMIN_ROUTE)
 							}}
-							className='align-self-center'
+							className='align-self-center nav-link'
 						>
 							Админ Панель
 						</Button>
@@ -57,7 +55,7 @@ const NavBar = observer(() => {
 							onClick={() => {
 								logout()
 							}}
-							className='ms-4 align-self-center'
+							className='ms-4 align-self-center nav-link'
 						>
 							Выйти
 						</Button>
@@ -65,7 +63,7 @@ const NavBar = observer(() => {
 							onClick={() => {
 								device.setBasketWindow(true)
 							}}
-							className='ms-4 bg-transparent border-0 justify-self-end d-flex flex-column align-items-center justify-content-center flex-wrap'
+							className='nav-link ms-4 bg-transparent border-0 justify-self-end d-flex flex-column align-items-center justify-content-center flex-wrap'
 						>
 							<img src='../assets/basket.webp' alt='' width={50} height={50} />
 							Корзина {device.basketCount}
@@ -76,12 +74,14 @@ const NavBar = observer(() => {
 						<Button
 							variant='outline-light'
 							onClick={() => navigate(LOGIN_ROUTE)}
+							className='nav-link'
 						>
 							Авторизация
 						</Button>
 					</Nav>
 				)}
 			</Container>
+			<Image className='border-image' src={border}></Image>
 		</Navbar>
 	)
 })
