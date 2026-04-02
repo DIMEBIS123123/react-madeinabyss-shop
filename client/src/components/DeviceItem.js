@@ -21,19 +21,16 @@ const DeviceItem = ({ deviceItem }) => {
 	return (
 		<Col
 			md={3}
-			className='mt-3'
+			className='mt-3 '
 			onClick={() => navigate(DEVICE_ROUTE + '/' + deviceItem.id)}
 		>
-			<Card
-				style={{ width: 150, cursor: 'pointer', background: 'transparent' }}
-				border='light'
-			>
+			<Card className='device-item'>
 				<Image
-					width={150}
+					width='100%'
 					height={150}
 					src={process.env.REACT_APP_API_URL + deviceItem.img}
 				/>
-				<div className='d-flex justify-content-between align-items-center'>
+				<div className='d-flex justify-content-between align-items-center device-item-text'>
 					<div>{deviceItem.name}</div>
 					<div>
 						<div>{deviceItem.rating}☆</div>

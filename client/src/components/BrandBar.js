@@ -9,28 +9,23 @@ const BrandBar = observer(() => {
 	return (
 		<Row className='d-flex justify-content-center align-items-center'>
 			<Card
-				style={{
-					width: 'auto',
-					cursor: 'pointer',
-					backgroundColor: device.selectedBrand.id ? 'white' : '#0d6efd',
-					color: device.selectedBrand.id ? 'black' : 'white',
-				}}
-				className='p-3 m-2'
+				className={
+					'p-3 m-2 brand-nav-item ' +
+					(device.selectedBrand.id === undefined ? 'brand-nav-item-active' : '')
+				}
 				onClick={() => device.setSelectedBrand({})}
 			>
 				Все Брэнды
 			</Card>
 			{device.brands.map(brand => (
 				<Card
-					style={{
-						width: 'auto',
-						cursor: 'pointer',
-						backgroundColor:
-							brand.id === device.selectedBrand.id ? '#0d6efd' : 'white',
-						color: brand.id === device.selectedBrand.id ? 'white' : 'black',
-					}}
 					key={brand.id}
-					className='p-3 m-2'
+					className={
+						'p-3 m-2 brand-nav-item ' +
+						(device.selectedBrand.id === brand.id
+							? 'brand-nav-item-active'
+							: '')
+					}
 					onClick={() => device.setSelectedBrand(brand)}
 				>
 					{brand.name}

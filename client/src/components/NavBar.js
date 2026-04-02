@@ -36,7 +36,7 @@ const NavBar = observer(() => {
 						height={50}
 						alt=''
 					/>
-					Made in Abyss <br /> Shop
+					Made in Abyss <br /> Relics, Tools and Curiosities
 				</NavLink>
 				{user.isAuth ? (
 					<Nav className='ml-auto' style={{ color: 'white' }}>
