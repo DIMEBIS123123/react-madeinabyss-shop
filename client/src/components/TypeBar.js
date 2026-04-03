@@ -13,7 +13,7 @@ const TypeBar = observer(() => {
 				key={666}
 				className='typebar-item'
 			>
-				Все Виды
+				Все Слои
 			</ListGroup.Item>
 			{device.types.map(type => (
 				<ListGroup.Item

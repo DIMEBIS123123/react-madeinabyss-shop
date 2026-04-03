@@ -12,6 +12,7 @@ import BasketWindow from './components/modals/BasketWindow'
 import './css/style.scss'
 import Image from 'react-bootstrap/esm/Image'
 import border from './assets/bar.png'
+import Footer from './components/Footer'
 
 const App = observer(() => {
 	const { user, device } = useContext(Context)
@@ -62,6 +63,7 @@ const App = observer(() => {
 			<NavBar />
 			<AppRouter />
 			<BasketWindow></BasketWindow>
+			<Footer></Footer>
 		</BrowserRouter>
 	)
 })

@@ -18,7 +18,7 @@ const BasketWindow = observer(() => {
 		>
 			<Modal.Header closeButton>
 				<Modal.Title id='example-custom-modal-styling-title'>
-					В Корзине столько товаров: {device.basketCount}!
+					В Экспедиции у нас: {device.basketCount}!
 				</Modal.Title>
 			</Modal.Header>
 			<Modal.Body>
@@ -40,7 +40,7 @@ const BasketWindow = observer(() => {
 							</div>
 
 							<Badge bg='primary' pill>
-								{basketDevice.device.price}р
+								{basketDevice.device.price}
 							</Badge>
 						</ListGroup.Item>
 					))}

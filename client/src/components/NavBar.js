@@ -65,8 +65,8 @@ const NavBar = observer(() => {
 							}}
 							className='nav-link ms-4 bg-transparent border-0 justify-self-end d-flex flex-column align-items-center justify-content-center flex-wrap'
 						>
-							<img src='../assets/basket.webp' alt='' width={50} height={50} />
-							Корзина {device.basketCount}
+							<img src='../assets/basket.webp' alt='' width={50} height={50} />В
+							Экспедицию! {device.basketCount}
 						</Button>
 					</Nav>
 				) : (

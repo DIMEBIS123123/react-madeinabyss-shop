@@ -30,10 +30,27 @@ const DeviceItem = ({ deviceItem }) => {
 					height={150}
 					src={process.env.REACT_APP_API_URL + deviceItem.img}
 				/>
-				<div className='d-flex justify-content-between align-items-center device-item-text'>
+				<div className='d-flex flex-column justify-content-between align-items-center device-item-text'>
 					<div>{deviceItem.name}</div>
 					<div>
-						<div>{deviceItem.rating}☆</div>
+						<div
+							style={{
+								color: deviceItem.price.toLowerCase().includes('синий')
+									? '#2f6f79'
+									: deviceItem.price.toLowerCase().includes('красный')
+										? '#b93a32'
+										: deviceItem.price.toLowerCase().includes('чёрный')
+											? 'black'
+											: deviceItem.price.toLowerCase().includes('фиолетовый')
+												? 'purple'
+												: '#f4ead7',
+								textShadow: deviceItem.price.toLowerCase().includes('чёрный')
+									? '-3px 0px 4px white'
+									: '',
+							}}
+						>
+							{deviceItem.price} ☆
+						</div>
 					</div>
 				</div>
 				<Button
@@ -45,7 +62,7 @@ const DeviceItem = ({ deviceItem }) => {
 						addToCart()
 					}}
 				>
-					Добавить В Корзину
+					Добавить В Экспедицию
 				</Button>
 			</Card>
 		</Col>

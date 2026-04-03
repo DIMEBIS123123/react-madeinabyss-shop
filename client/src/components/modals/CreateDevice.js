@@ -29,7 +29,7 @@ const CreateDevice = observer(({ show, onHide }) => {
 		const formData = new FormData()
 		formData.append('name', name)
 
-		formData.append('price', `${price}`)
+		formData.append('price', price)
 		formData.append('brandId', device.selectedBrand.id)
 		formData.append('typeId', device.selectedType.id)
 		formData.append('info', JSON.stringify(info)) // если это массив/объект
@@ -53,7 +53,7 @@ const CreateDevice = observer(({ show, onHide }) => {
 				<Form>
 					<Dropdown>
 						<Dropdown.Toggle>
-							{device.selectedType.name || 'Выберите тип'}
+							{device.selectedType.name || 'Выберите Слой Бездны'}
 						</Dropdown.Toggle>
 						<Dropdown.Menu>
 							{device.types.map(type => (
@@ -68,7 +68,7 @@ const CreateDevice = observer(({ show, onHide }) => {
 					</Dropdown>
 					<Dropdown className='mt-3'>
 						<Dropdown.Toggle>
-							{device.selectedBrand.name || 'Выберите брэнд'}
+							{device.selectedBrand.name || 'Выберите Секцию'}
 						</Dropdown.Toggle>
 						<Dropdown.Menu>
 							{device.brands.map(brand => (
@@ -85,14 +85,13 @@ const CreateDevice = observer(({ show, onHide }) => {
 						value={name}
 						onChange={e => setName(e.target.value)}
 						className='mt-3'
-						placeholder='Введите название устройства'
+						placeholder='Введите название'
 					/>
 					<Form.Control
 						value={price}
-						onChange={e => setPrice(Number(e.target.value))}
+						onChange={e => setPrice(e.target.value)}
 						className='mt-3'
-						placeholder='Введите стоимость устройства'
-						type='number'
+						placeholder='Введите описание'
 					/>
 					<Form.Control className='mt-3' type='file' onChange={selectFile} />
 					<hr />
