@@ -10,6 +10,11 @@ router.get(
 	authMiddleware,
 	deviceController.getBasketDevices,
 )
+router.post(
+	'/deleteBasketDevice',
+	authMiddleware,
+	deviceController.deleteBasketDevice,
+)
 router.get('/', deviceController.getAll)
 router.get('/:id', deviceController.getOne)
 router.post('/createBasketDevice', deviceController.createBasketDevice)

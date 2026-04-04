@@ -1,0 +1,278 @@
+.admin-container {
+	button {
+		border-radius: 24px;
+		border: 1px solid rgba(255, 196, 110, 0.16);
+		background: linear-gradient(
+			180deg,
+			rgba(34, 24, 16, 0.8) 0%,
+			rgba(18, 14, 12, 0.88) 100%
+		);
+		box-shadow:
+			0 22px 48px rgba(0, 0, 0, 0.3),
+			0 0 28px rgba(235, 84, 12, 0.08),
+			inset 0 1px 0 rgba(255, 240, 210, 0.05);
+		backdrop-filter: blur(12px);
+		color: #f4ead7;
+	}
+}
+.modal-backdrop.show {
+	background: rgba(7, 10, 14, 0.72) !important;
+	backdrop-filter: blur(6px);
+	opacity: 1 !important;
+}
+
+.modal.show .modal-dialog {
+	transform: translateY(0) scale(1);
+}
+
+.modal.fade .modal-dialog {
+	transform: translateY(10px) scale(0.985);
+	transition: transform 0.28s ease;
+}
+
+.modal-content {
+	position: relative;
+	border: 1px solid rgba(255, 196, 110, 0.18) !important;
+	border-radius: 22px !important;
+	overflow: hidden;
+	background: linear-gradient(
+		180deg,
+		rgba(34, 24, 16, 0.94) 0%,
+		rgba(18, 14, 12, 0.97) 100%
+	) !important;
+	box-shadow:
+		0 26px 60px rgba(0, 0, 0, 0.38),
+		0 0 30px rgba(235, 84, 12, 0.08),
+		inset 0 1px 0 rgba(255, 240, 210, 0.05) !important;
+	color: #f4ead7 !important;
+	backdrop-filter: blur(14px);
+}
+
+.modal-content::before {
+	content: '';
+	position: absolute;
+	inset: -30%;
+	background:
+		radial-gradient(circle at 18% 22%, rgba(245, 163, 0, 0.1), transparent 26%),
+		radial-gradient(
+			circle at 82% 76%,
+			rgba(95, 152, 160, 0.08),
+			transparent 28%
+		);
+	filter: blur(30px);
+	pointer-events: none;
+}
+
+.modal-header,
+.modal-body,
+.modal-footer {
+	position: relative;
+	z-index: 1;
+}
+
+.modal-header {
+	border-bottom: 1px solid rgba(255, 188, 92, 0.1) !important;
+	padding: 20px 22px 16px !important;
+	background: linear-gradient(
+		180deg,
+		rgba(255, 180, 70, 0.04),
+		rgba(255, 180, 70, 0)
+	);
+}
+
+.modal-title {
+	color: #fff3de;
+	font-weight: 800;
+	font-size: 1.65rem;
+	text-shadow:
+		0 0 12px rgba(245, 163, 0, 0.08),
+		0 0 22px rgba(95, 152, 160, 0.04);
+}
+
+.modal-body {
+	padding: 20px 22px !important;
+	color: rgba(244, 234, 215, 0.92);
+}
+
+.modal-footer {
+	border-top: 1px solid rgba(255, 188, 92, 0.1) !important;
+	padding: 16px 22px 20px !important;
+	background: linear-gradient(
+		0deg,
+		rgba(255, 180, 70, 0.03),
+		rgba(255, 180, 70, 0)
+	);
+}
+
+.btn-close {
+	filter: invert(1) sepia(0.2) saturate(0.4) brightness(1.8);
+	opacity: 0.75;
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
+/* Инпуты внутри модалок */
+.modal .form-control,
+.modal .form-select,
+.modal input[type='text'],
+.modal input[type='email'],
+.modal input[type='password'],
+.modal input[type='number'],
+.modal textarea {
+	min-height: 48px;
+	border-radius: 14px !important;
+	border: 1px solid rgba(255, 188, 92, 0.14) !important;
+	background: linear-gradient(
+		180deg,
+		rgba(45, 32, 24, 0.82) 0%,
+		rgba(27, 20, 16, 0.88) 100%
+	) !important;
+	color: #f4ead7 !important;
+	box-shadow:
+		inset 0 1px 0 rgba(255, 238, 205, 0.03),
+		0 0 0 rgba(245, 163, 0, 0) !important;
+	transition:
+		border-color 0.25s ease,
+		box-shadow 0.25s ease,
+		background 0.25s ease !important;
+}
+
+.modal .form-control::placeholder,
+.modal textarea::placeholder {
+	color: rgba(235, 220, 196, 0.48) !important;
+}
+
+.modal .form-control:focus,
+.modal .form-select:focus,
+.modal textarea:focus {
+	background: linear-gradient(
+		180deg,
+		rgba(54, 38, 28, 0.9) 0%,
+		rgba(32, 24, 18, 0.94) 100%
+	) !important;
+	color: #fff5e6 !important;
+	border-color: rgba(245, 163, 0, 0.42) !important;
+	box-shadow:
+		0 0 0 0.18rem rgba(245, 163, 0, 0.12),
+		0 0 18px rgba(235, 84, 12, 0.1) !important;
+}
+
+/* file input */
+.modal input[type='file'] {
+	border-radius: 14px !important;
+	border: 1px solid rgba(255, 188, 92, 0.14) !important;
+	background: linear-gradient(
+		180deg,
+		rgba(45, 32, 24, 0.82) 0%,
+		rgba(27, 20, 16, 0.88) 100%
+	) !important;
+	color: rgba(244, 234, 215, 0.84) !important;
+	padding: 10px 12px !important;
+}
+
+.modal input[type='file']::file-selector-button {
+	border: none;
+	margin-right: 12px;
+	padding: 8px 14px;
+	border-radius: 10px;
+	background: linear-gradient(180deg, #f5a300 0%, #eb540c 100%);
+	color: #fffaf1;
+	cursor: pointer;
+}
+
+/* dropdown / buttons */
+.modal .dropdown-toggle,
+.modal .btn-secondary,
+.modal .btn-outline-secondary {
+	border-radius: 12px !important;
+	border: 1px solid rgba(255, 188, 92, 0.18) !important;
+	background: linear-gradient(
+		180deg,
+		rgba(49, 34, 24, 0.92) 0%,
+		rgba(27, 20, 16, 0.94) 100%
+	) !important;
+	color: #f4ead7 !important;
+	box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18) !important;
+}
+
+.modal .dropdown-toggle:hover,
+.modal .btn-secondary:hover,
+.modal .btn-outline-secondary:hover {
+	border-color: rgba(245, 163, 0, 0.34) !important;
+	color: #fff5e6 !important;
+	background: linear-gradient(
+		180deg,
+		rgba(58, 40, 28, 0.94) 0%,
+		rgba(33, 24, 18, 0.96) 100%
+	) !important;
+}
+
+/* primary action */
+.modal .btn-success,
+.modal .btn-primary {
+	border: 1px solid rgba(255, 209, 127, 0.52) !important;
+	border-radius: 12px !important;
+	background: linear-gradient(180deg, #f5a300 0%, #eb540c 100%) !important;
+	color: #fffaf1 !important;
+	box-shadow:
+		0 10px 22px rgba(0, 0, 0, 0.22),
+		0 0 18px rgba(235, 84, 12, 0.14),
+		inset 0 1px 0 rgba(255, 241, 210, 0.2) !important;
+}
+
+.modal .btn-success:hover,
+.modal .btn-primary:hover {
+	transform: translateY(-1px);
+	background: linear-gradient(180deg, #f7af1f 0%, #f06311 100%) !important;
+	box-shadow:
+		0 14px 28px rgba(0, 0, 0, 0.26),
+		0 0 24px rgba(245, 163, 0, 0.2) !important;
+}
+
+/* close / cancel */
+.modal .btn-danger,
+.modal .btn-outline-danger {
+	border-radius: 12px !important;
+	border: 1px solid rgba(220, 110, 92, 0.26) !important;
+	background: rgba(80, 28, 20, 0.18) !important;
+	color: #ffb7a8 !important;
+}
+
+.modal .btn-danger:hover,
+.modal .btn-outline-danger:hover {
+	background: rgba(120, 36, 24, 0.28) !important;
+	color: #ffd4ca !important;
+	border-color: rgba(255, 142, 120, 0.34) !important;
+}
+
+/* разделители */
+.modal hr {
+	border-color: rgba(255, 188, 92, 0.1);
+	opacity: 1;
+}
+
+/* dropdown menu если используешь bootstrap dropdown */
+.modal .dropdown-menu {
+	border-radius: 14px;
+	border: 1px solid rgba(255, 196, 110, 0.16);
+	background: linear-gradient(
+		180deg,
+		rgba(34, 24, 16, 0.96) 0%,
+		rgba(18, 14, 12, 0.98) 100%
+	);
+	box-shadow:
+		0 18px 34px rgba(0, 0, 0, 0.3),
+		0 0 22px rgba(235, 84, 12, 0.08);
+}
+
+.modal .dropdown-item {
+	color: rgba(244, 234, 215, 0.88);
+}
+
+.modal .dropdown-item:hover,
+.modal .dropdown-item:focus {
+	background: rgba(245, 163, 0, 0.1);
+	color: #fff3de;
+}

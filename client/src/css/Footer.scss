@@ -1,15 +1,9 @@
 .abyss-footer-mini {
 	position: relative;
 	margin-top: 56px;
-	padding: 14px 20px;
-	background: linear-gradient(
-		180deg,
-		rgba(20, 14, 10, 0.72) 0%,
-		rgba(10, 14, 18, 0.88) 100%
-	);
-	border-top: 1px solid rgba(255, 180, 80, 0.12);
+	padding: 14px 0px;
+
 	backdrop-filter: blur(8px);
-	overflow: hidden;
 
 	&::before {
 		content: '';

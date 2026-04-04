@@ -1,0 +1,211 @@
+.basket-modal {
+	.modal-content {
+		max-height: 82vh;
+	}
+
+	.modal-title {
+		font-weight: 800;
+		color: #fff3de;
+	}
+
+	.modal-body {
+		padding-top: 14px !important;
+		padding-bottom: 16px !important;
+		overflow-y: auto;
+	}
+
+	.list-group {
+		gap: 10px;
+		background: transparent !important;
+		--bs-list-group-bg: transparent;
+		--bs-list-group-border-color: transparent;
+	}
+
+	.list-group-numbered {
+		padding-left: 0;
+		margin-bottom: 0;
+	}
+
+	.list-group-item {
+		position: relative;
+		display: flex !important;
+		align-items: center !important;
+		justify-content: space-between !important;
+		gap: 14px;
+		padding: 12px 14px 12px 18px !important;
+		border-radius: 16px !important;
+		border: 1px solid rgba(255, 188, 92, 0.1) !important;
+		background: linear-gradient(
+			180deg,
+			rgba(42, 30, 20, 0.92) 0%,
+			rgba(24, 18, 14, 0.96) 100%
+		) !important;
+		color: #f4ead7 !important;
+		box-shadow:
+			0 10px 22px rgba(0, 0, 0, 0.2),
+			inset 0 1px 0 rgba(255, 240, 210, 0.03);
+		transition:
+			transform 0.22s ease,
+			border-color 0.22s ease,
+			box-shadow 0.22s ease,
+			background 0.22s ease;
+	}
+
+	.list-group-item:hover {
+		transform: translateY(-2px);
+		border-color: rgba(245, 163, 0, 0.24) !important;
+		box-shadow:
+			0 14px 28px rgba(0, 0, 0, 0.24),
+			0 0 18px rgba(235, 84, 12, 0.08);
+		background: linear-gradient(
+			180deg,
+			rgba(50, 35, 24, 0.94) 0%,
+			rgba(28, 20, 16, 0.98) 100%
+		) !important;
+	}
+
+	/* номер в ol */
+	.list-group-numbered > .list-group-item::before {
+		color: rgba(255, 220, 180, 0.58);
+		font-weight: 700;
+		min-width: 24px;
+	}
+
+	/* Блок слева */
+	.list-group-item > div,
+	.list-group-item .ms-2 {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		min-width: 0;
+	}
+
+	/* Изображение товара */
+	.list-group-item img {
+		width: 42px;
+		height: 42px;
+		object-fit: cover;
+		border-radius: 10px;
+		border: 1px solid rgba(255, 196, 110, 0.14);
+		box-shadow:
+			0 6px 14px rgba(0, 0, 0, 0.2),
+			inset 0 1px 0 rgba(255, 240, 210, 0.04);
+		flex-shrink: 0;
+	}
+
+	/* Название */
+	.list-group-item .fw-bold,
+	.list-group-item strong {
+		color: #fff2df !important;
+		font-weight: 700 !important;
+		font-size: 0.98rem;
+		line-height: 1.2;
+	}
+
+	/* Доп. текст если есть */
+	.list-group-item small,
+	.list-group-item span:not(.badge) {
+		color: rgba(236, 223, 202, 0.72);
+	}
+
+	/* Бейдж справа */
+	.badge {
+		align-self: center;
+		border-radius: 999px !important;
+		padding: 7px 12px !important;
+		font-size: 0.72rem !important;
+		font-weight: 700 !important;
+		letter-spacing: 0.01em;
+		color: #fffaf1 !important;
+		border: 1px solid rgba(255, 214, 142, 0.32);
+		background: linear-gradient(180deg, #f5a300 0%, #eb540c 100%) !important;
+		box-shadow:
+			0 6px 14px rgba(0, 0, 0, 0.18),
+			0 0 14px rgba(245, 163, 0, 0.1);
+	}
+
+	/* Если ты используешь bg-primary у bootstrap */
+	.bg-primary,
+	.text-bg-primary {
+		background: linear-gradient(180deg, #f5a300 0%, #eb540c 100%) !important;
+		color: #fffaf1 !important;
+		border: 1px solid rgba(255, 214, 142, 0.32) !important;
+	}
+
+	/* Можно сделать разные редкости / типы */
+	.badge.layer-light {
+		background: linear-gradient(180deg, #f3c14a 0%, #e59518 100%) !important;
+	}
+
+	.badge.layer-deep {
+		background: linear-gradient(180deg, #5f98a0 0%, #2f6f79 100%) !important;
+		border-color: rgba(137, 199, 194, 0.3);
+	}
+
+	.badge.layer-danger {
+		background: linear-gradient(180deg, #d56a39 0%, #9f2f20 100%) !important;
+		border-color: rgba(255, 170, 140, 0.26);
+	}
+
+	/* scrollbar */
+	.modal-body::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	.modal-body::-webkit-scrollbar-track {
+		background: rgba(255, 255, 255, 0.03);
+		border-radius: 999px;
+	}
+
+	.modal-body::-webkit-scrollbar-thumb {
+		background: linear-gradient(
+			180deg,
+			rgba(245, 163, 0, 0.55),
+			rgba(235, 84, 12, 0.55)
+		);
+		border-radius: 999px;
+	}
+	.basket-item__remove {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 34px;
+		height: 34px;
+		border: 1px solid rgba(255, 148, 120, 0.18);
+		border-radius: 50%;
+		background: linear-gradient(
+			180deg,
+			rgba(72, 30, 24, 0.92) 0%,
+			rgba(42, 18, 16, 0.96) 100%
+		);
+		color: rgba(255, 196, 182, 0.88);
+		cursor: pointer;
+		box-shadow:
+			0 8px 14px rgba(0, 0, 0, 0.18),
+			inset 0 1px 0 rgba(255, 220, 210, 0.03);
+		transition:
+			transform 0.22s ease,
+			background 0.22s ease,
+			border-color 0.22s ease,
+			color 0.22s ease,
+			box-shadow 0.22s ease;
+	}
+
+	.basket-item__remove:hover {
+		transform: translateY(-1px) scale(1.05);
+		background: linear-gradient(
+			180deg,
+			rgba(114, 40, 28, 0.98) 0%,
+			rgba(72, 22, 16, 1) 100%
+		);
+		border-color: rgba(255, 140, 110, 0.32);
+		color: #ffd6ca;
+		box-shadow:
+			0 12px 18px rgba(0, 0, 0, 0.22),
+			0 0 14px rgba(220, 90, 70, 0.12);
+	}
+
+	.basket-item__remove:active {
+		transform: scale(0.96);
+	}
+}

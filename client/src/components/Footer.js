@@ -1,9 +1,12 @@
 import React from 'react'
 import '../css/Footer.scss'
+import Image from 'react-bootstrap/esm/Image'
+import border from '../assets/bar.png'
 
 const Footer = () => {
 	return (
 		<footer className='abyss-footer-mini'>
+			<Image className='border-image top footer-border' src={border}></Image>
 			<div className='abyss-footer-mini__inner'>
 				<div className='abyss-footer-mini__warning'>
 					<span className='abyss-footer-mini__icon'>⚠</span>

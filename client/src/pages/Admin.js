@@ -4,12 +4,13 @@ import Container from 'react-bootstrap/esm/Container'
 import CreateBrand from '../components/modals/CreateBrand'
 import CreateDevice from '../components/modals/CreateDevice'
 import CreateType from '../components/modals/CreateType'
+import '../css/admin.scss'
 const Admin = () => {
 	const [brandVisible, setBrandVisible] = useState(false)
 	const [deviceVisible, setDeviceVisible] = useState(false)
 	const [typeVisible, setTypeVisible] = useState(false)
 	return (
-		<Container className='d-flex flex-column gap-3'>
+		<Container className='d-flex flex-column gap-3 admin-container'>
 			<Button
 				style={{ marginTop: '15px' }}
 				variant='outline-dark'

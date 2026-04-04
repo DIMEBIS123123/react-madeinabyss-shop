@@ -9,6 +9,7 @@ import { LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE } from '../utils/consts'
 import { login, registration } from '../http/userAPI'
 import { Context } from '..'
 import { observer } from 'mobx-react-lite'
+import '../css/auth.scss'
 
 const Auth = observer(() => {
 	const { user } = useContext(Context)
@@ -36,10 +37,10 @@ const Auth = observer(() => {
 	}
 	return (
 		<Container
-			className='d-flex justify-content-center align-items-center'
+			className='d-flex justify-content-center align-items-center auth-container'
 			style={{ height: window.innerHeight - 54 }}
 		>
-			<Card style={{ width: 600 }} className='p-5'>
+			<Card style={{ width: 600 }} className='p-5 '>
 				<h2 className='m-auto'>{isLogin ? 'Авторизация' : 'Регистрация'}</h2>
 				<Form className='d-flex flex-column'>
 					<Form.Control
