@@ -6,11 +6,31 @@ import { observer } from 'mobx-react-lite'
 import Badge from 'react-bootstrap/Badge'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Image from 'react-bootstrap/esm/Image'
-import '../../css/basket.scss'
-import { deleteBasketDevice } from '../../http/deviceAPI'
+import '../../css/basket-modal.scss'
+import {
+	deleteAllBasketDevices,
+	deleteBasketDevice,
+} from '../../http/deviceAPI'
+import { useNavigate } from 'react-router-dom'
+import { BASKET_ROUTE } from '../../utils/consts'
 
 const BasketWindow = observer(() => {
 	const { device } = useContext(Context)
+	const navigate = useNavigate()
+
+	const deleteBasketDeviceFromBasket = id => {
+		let freshBasketDevices = device.basketDevices.filter(
+			deviceItem => deviceItem.id !== id,
+		)
+		device.setBasketDevices(freshBasketDevices)
+		device.setBasketCount(device.basketCount - 1)
+		deleteBasketDevice(id)
+	}
+	const deleteAllBasketDevicesFromBasket = () => {
+		device.setBasketDevices([])
+		device.setBasketCount(0)
+		deleteAllBasketDevices()
+	}
 	return (
 		<Modal
 			show={device.basketWindow}
@@ -48,7 +68,7 @@ const BasketWindow = observer(() => {
 								<button
 									type='button'
 									className='basket-item__remove'
-									onClick={() => deleteBasketDevice(basketDevice.id)}
+									onClick={() => deleteBasketDeviceFromBasket(basketDevice.id)}
 									aria-label={`Удалить ${device.name} из корзины`}
 									title='Убрать из экспедиции'
 								>
@@ -60,30 +80,28 @@ const BasketWindow = observer(() => {
 				</ListGroup>
 			</Modal.Body>
 			<Modal.Footer>
-				<Button
-					variant='secondary'
-					onClick={() => {
-						device.setBasketWindow(false)
-					}}
-				>
-					Закрыть
-				</Button>
-				<Button
-					variant='warning'
-					onClick={() => {
-						device.setBasketWindow(false)
-					}}
-				>
-					Очистить Рюкзак
-				</Button>
-				<Button
-					variant='primary'
-					onClick={() => {
-						device.setBasketWindow(false)
-					}}
-				>
-					Отправиться в Экспедицию
-				</Button>
+				{device.basketCount === 0 ? null : (
+					<>
+						<Button
+							variant='warning'
+							onClick={() => {
+								deleteAllBasketDevicesFromBasket()
+								device.setBasketWindow(false)
+							}}
+						>
+							Очистить Рюкзак
+						</Button>
+						<Button
+							variant='primary'
+							onClick={() => {
+								device.setBasketWindow(false)
+								navigate(BASKET_ROUTE)
+							}}
+						>
+							Собрать Экспедицию!
+						</Button>
+					</>
+				)}
 			</Modal.Footer>
 		</Modal>
 	)

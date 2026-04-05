@@ -13,6 +13,7 @@ export default class DeviceStore {
 		this._basketCount = 0
 		this._basketDevices = []
 		this._basketWindow = false
+		this._abyssAnimation = 'idle'
 		makeAutoObservable(this)
 	}
 	setTypes(types) {
@@ -47,6 +48,9 @@ export default class DeviceStore {
 	setBasketWindow(boolean) {
 		this._basketWindow = boolean
 	}
+	setAbyssAnimation(string) {
+		this._abyssAnimation = string
+	}
 	get types() {
 		return this._types
 	}
@@ -79,5 +83,8 @@ export default class DeviceStore {
 	}
 	get basketWindow() {
 		return this._basketWindow
+	}
+	get abyssAnimation() {
+		return this._abyssAnimation
 	}
 }

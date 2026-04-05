@@ -12,6 +12,17 @@ import Pages from '../components/Pages'
 
 const Shop = observer(() => {
 	const { device } = useContext(Context)
+	useEffect(() => {
+		if (device.abyssAnimation === 'active') {
+			device.setAbyssAnimation('reveal')
+
+			const timer = setTimeout(() => {
+				device.setAbyssAnimation('idle')
+			}, 900)
+
+			return () => clearTimeout(timer)
+		}
+	}, [])
 
 	return (
 		<Container>

@@ -92,6 +92,19 @@ class DeviceController {
 		})
 		return res.json({ message: 'Из Экспедиции убрано 1 нечто!' })
 	}
+	async deleteAllBasketDevices(req, res) {
+		const userId = req.user.id
+		let basket = await Basket.findOne({
+			where: { userId },
+		})
+
+		await BasketDevice.destroy({
+			where: {
+				basketId: basket.id,
+			},
+		})
+		return res.json({ message: 'Из Экспедиции всё убрано!' })
+	}
 	async getBasketDevices(req, res) {
 		const userId = req.user.id
 		let basket = await Basket.findOne({

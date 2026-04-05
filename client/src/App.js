@@ -13,6 +13,7 @@ import './css/style.scss'
 import Image from 'react-bootstrap/esm/Image'
 import border from './assets/bar.png'
 import Footer from './components/Footer'
+import AbyssTransition from './components/AbyssTransition'
 
 const App = observer(() => {
 	const { user, device } = useContext(Context)
@@ -60,6 +61,7 @@ const App = observer(() => {
 	}
 	return (
 		<BrowserRouter>
+			<AbyssTransition />
 			<NavBar />
 			<AppRouter />
 			<BasketWindow></BasketWindow>

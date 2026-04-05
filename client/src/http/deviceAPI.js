@@ -53,6 +53,15 @@ export const deleteBasketDevice = async id => {
 		console.log(e.response.data.message)
 	}
 }
+export const deleteAllBasketDevices = async () => {
+	try {
+		const { data } = await $authHost.post('api/device/deleteAllBasketDevices')
+
+		return data
+	} catch (e) {
+		console.log(e.response.data.message)
+	}
+}
 export const getBasketDevices = async () => {
 	try {
 		const { data } = await $authHost.get('api/device/getBasketDevices')

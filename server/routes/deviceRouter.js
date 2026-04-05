@@ -15,6 +15,12 @@ router.post(
 	authMiddleware,
 	deviceController.deleteBasketDevice,
 )
+router.post(
+	'/deleteAllBasketDevices',
+	authMiddleware,
+	deviceController.deleteAllBasketDevices,
+)
+
 router.get('/', deviceController.getAll)
 router.get('/:id', deviceController.getOne)
 router.post('/createBasketDevice', deviceController.createBasketDevice)
