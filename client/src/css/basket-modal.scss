@@ -209,3 +209,16 @@
 		transform: scale(0.96);
 	}
 }
+@media (max-width: 1000px) {
+	.basket-modal .modal-dialog {
+		width: 100% !important;
+	}
+	.basket-modal .list-group-item {
+		flex-direction: column;
+
+		box-sizing: border-box;
+	}
+	.basket-modal .list-group-item .me-auto {
+		margin-right: 0 !important;
+	}
+}

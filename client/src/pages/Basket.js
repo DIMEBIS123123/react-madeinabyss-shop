@@ -16,6 +16,28 @@ const Basket = observer(() => {
 	const audioRef = useRef(null)
 	const [abyssDrop, setAbyssDrop] = useState(false)
 	// const navigate = useNavigate();
+	const fadeOutAudio = (audio, duration = 800) => {
+		if (!audio) return
+
+		const startVolume = audio.volume
+		const steps = 20
+		const stepDuration = duration / steps
+		let currentStep = 0
+
+		const fadeInterval = setInterval(() => {
+			currentStep += 1
+
+			const nextVolume = startVolume * (1 - currentStep / steps)
+			audio.volume = Math.max(nextVolume, 0)
+
+			if (currentStep >= steps) {
+				clearInterval(fadeInterval)
+				audio.pause()
+				audio.currentTime = 0
+				audio.volume = startVolume
+			}
+		}, stepDuration)
+	}
 
 	const handleExpedition = () => {
 		if (abyssDrop) return
@@ -33,10 +55,13 @@ const Basket = observer(() => {
 				console.log('Ошибка воспроизведения аудио:', err)
 			})
 		}
+		setTimeout(() => {
+			fadeOutAudio(audioRef.current, 2000)
+		}, 3000)
 
 		setTimeout(() => {
 			navigate(SHOP_ROUTE)
-		}, 4000)
+		}, 5000)
 		document.body.classList.add('abyss-shake')
 		setTimeout(() => {
 			document.body.classList.remove('abyss-shake')

@@ -157,6 +157,17 @@ button,
 	cursor:
 		url('../assets/anime-made-in-abyss-riko-cursor.png'), pointer !important;
 }
+button.btn-warning {
+	transition:
+		background 0.5s ease,
+		color 0.5s ease,
+		border 0.5s ease;
+}
+button.btn-warning:hover {
+	background: $color-bg;
+	color: $color-text;
+	border-color: $color-bg;
+}
 .main-content {
 	position: relative;
 	z-index: 1;
@@ -170,6 +181,7 @@ button,
 	top: 120px;
 	transform: translateX(-50%);
 	width: 900px;
+	max-width: 100%;
 	height: 500px;
 	background: radial-gradient(
 		circle,
@@ -407,4 +419,15 @@ button,
 		0 8px 22px rgba(0, 0, 0, 0.22),
 		0 0 18px rgba(235, 84, 12, 0.16),
 		inset 0 1px 0 rgba(255, 237, 198, 0.25);
+}
+@media (max-width: 600px) {
+	.navbar {
+		text-align: center;
+	}
+	.navbar .container {
+		flex-direction: column;
+	}
+	.navbar .container .navbar-nav {
+		flex-direction: column;
+	}
 }
