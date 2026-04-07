@@ -86,4 +86,9 @@
 <p>
   Измените <code>PORT</code> в <code>.env</code> или освободите занятый порт.
 </p>
-<h2>⌛ Возможные проблемы</h2>
+<h2>⌛ Демо-видео проекта</h2>
+<details>
+  <summary>🍿 Нажми сюда, чтобы посмотреть полную видео-демонстрацию магазина</summary>
+  <br>
+  <video src="./client/src/assets/2026-04-07 15-30-06.mp4" controls width="100%"></video>
+</details>
