@@ -90,5 +90,5 @@
 <details>
   <summary>🍿 Нажми сюда, чтобы посмотреть полную видео-демонстрацию магазина</summary>
   <br>
-  <video src="./client/src/assets/2026-04-07 15-30-06.mp4" controls width="100%"></video>
+  <video src="./client/src/assets/demo.mp4" controls width="100%"></video>
 </details>
