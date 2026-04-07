@@ -6,13 +6,14 @@
 <h2>🔦 Технологии с которыми работал</h2>
 <ul>
 	<li>React.js</li>
+	<li>Mobx</li>
     <li>Bootstrap</li>
 	<li>Scss</li>
 	<li>Node.js</li>
 	<li>Express</li>
 	<li>Sequelize</li>
 	<li>JWT</li>
-    <li>Mobx</li>
+   
 </ul>
 <h2>🦊 Основные функции что выполнимы в проекте </h2>
 <ul>
