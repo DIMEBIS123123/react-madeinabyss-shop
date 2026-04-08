@@ -92,6 +92,7 @@
 
 
 <a href="https://youtu.be/NLooME-uNaI" target="_blank">
- 
+ <img width="1966" height="1023" alt="demo-video" src="https://github.com/user-attachments/assets/e9760516-05e7-4951-a673-0c2cf57a6429" />
+
 </a>
 
