@@ -90,5 +90,5 @@
 <details>
   <summary>🍿 Нажми сюда, чтобы посмотреть полную видео-демонстрацию магазина</summary>
   <br>
-  <video src="./client/src/assets/demo.mp4" controls width="100%"></video>
+  https://github.com/DIMEBIS123123/react-madeinabyss-shop/releases/download/demo-video/demo.mp4
 </details>
