@@ -87,8 +87,11 @@
   Измените <code>PORT</code> в <code>.env</code> или освободите занятый порт.
 </p>
 <h2>⌛ Демо-видео проекта</h2>
-<details>
-  <summary>🍿 Нажми сюда, чтобы посмотреть полную видео-демонстрацию магазина</summary>
-  <br>
-  https://github.com/DIMEBIS123123/react-madeinabyss-shop/releases/download/demo-video/demo.mp4
-</details>
+
+
+
+
+<a href="https://youtu.be/NLooME-uNaI" target="_blank">
+ <img width="2508" height="1312" alt="demo" src="https://github.com/user-attachments/assets/cafd9288-9110-40a8-a25f-2c14a763b6ea" />
+</a>
+
